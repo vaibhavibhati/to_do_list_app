@@ -247,16 +247,58 @@ class _LoginState extends State<Login> {
               ],
             ),
           ),
+         Container(
+           padding: EdgeInsets.only(top: 430, left: 100),
+           child: Row(
+             mainAxisAlignment: MainAxisAlignment.center,
+             children: [
+               if(!isLogin)
+               TextButton(onPressed: (){
+                 setState(() {
+                   isLogin = false;
+                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Home()),);
+                 });
+               }, child: Text('Forget Password?',
+               style: TextStyle(
+                 fontSize: 18,
+                 fontWeight: FontWeight.bold,
+                 color: Colors.white,
+               ),
+               ),
+               ),
+               if(isLogin)
+               TextButton(onPressed: (){
+                 setState(() {
+                   isLogin = true;
+                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Login()),);
+                 });
+               }, child: Text('Already Registered?',
+                 style: TextStyle(
+                   fontSize: 18,
+                   fontWeight: FontWeight.bold,
+                   color: Colors.white,
+                 ),
+               ),)
+             ],
+           ),
+         ),
          Row(
           mainAxisAlignment:  MainAxisAlignment.center,
            children: [
              Container(
+               padding: EdgeInsets.only(left: 50, right: 50),
+               decoration: BoxDecoration(
+                 borderRadius: BorderRadius.circular(30.0),
+                 color: Colors.amber,
+               ),
                margin: const EdgeInsets.only(top: 500, left: 80, right: 80),
-               child: TextButton(onPressed: (){
-                 Navigator.pushReplacement(context,MaterialPageRoute(builder:(context)=>const Home()));
+               child:
+               TextButton(onPressed: (){
+                 setState(() {
+                   isLogin = true;
+                   Navigator.pushReplacement(context,MaterialPageRoute(builder:(context)=>const Home()));
+                 });
                }, child: const Text('Login',style: TextStyle(
-                 backgroundColor: Colors.amber,
-                 decoration: TextDecoration.underline,
                  fontSize: 25,
                  color: Colors.black,
                ),))
