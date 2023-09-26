@@ -69,30 +69,58 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: Colors.amber,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Icon(Icons.menu, color: Colors.black, size: 30,),
-            Container(
-              height: 50, width: 50,
-              child: ClipRect(
-                child: Image.asset('assets/images/ManAvtar.png'),
+        leading: IconButton(onPressed: (){},
+          icon: Icon(Icons.menu_rounded),
+        color: Colors.black,
+        iconSize: 50,
+        ),
+        actions: [
+          Container(
+            padding: EdgeInsets.only(top: 10),
+            child: CircleAvatar(
+              radius: 40,
+                backgroundColor: Colors.deepOrangeAccent,
+                child: Image.asset('assets/images/img_2.png')),
+          ),
+        ],
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.amber,
+      //   title: Row(
+      //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //     children: [
+      //       Icon(Icons.menu, color: Colors.black, size: 30,),
+      //       Container(
+      //         height: 50, width: 50,
+      //         child: ClipRect(
+      //           child: Image.asset('assets/images/img_2.png'),
+      //         ),
+      //
+      //       )
+      //     ],
+      //   ),
+      // ),
+        body:  Stack(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/img_1.png'),
+                      fit: BoxFit.cover
+                  ),
+                ),
               ),
 
-            )
-          ],
-        ),
-      ),
-        body: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/images/Home.png'),
-                fit: BoxFit.fill
-            ),
-          ),
-          child: Column(
+    //           Container(
+    //               padding: EdgeInsets.only(top: 50,),
+    //               height: 50, width: 50,
+    //               child:Image.asset('assets/images/img_2.png'),
+    // ),
+          Column(
             children: [
               // Text('Today List', style: TextStyle(fontSize: 20, color: Colors.black,),),
               Expanded(
@@ -121,8 +149,7 @@ class _HomeState extends State<Home> {
               //       itemCount: time.length ,
               //     )
               // ),
-              Stack(
-                children: [
+
                   Container(
                     padding: EdgeInsets.only(bottom: 50,right: 30),
                     child: Column(
@@ -135,9 +162,9 @@ class _HomeState extends State<Home> {
                     ),
                   )
                   ],)
-                ],
+              ],
               )
-          ),
+          
 
       );
 

@@ -1,4 +1,4 @@
-//
+
 //
 //
 // import 'package:flutter/material.dart';
@@ -155,7 +155,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:to_do_list_app/screens/Component/custom_button.dart';
-// import 'package:to_do_list_app/screens/Forget_email.dart';
+import 'package:to_do_list_app/screens/Forget_email.dart';
 import 'package:to_do_list_app/screens/Home.dart';
 
 class Login extends StatefulWidget {
@@ -181,74 +181,77 @@ class _LoginState extends State<Login> {
         ),
           Center(
             child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  color: Colors.black.withOpacity(0.6),
-                ),
-                // padding: EdgeInsets.only(top: 500,left: 50, right: 50),
-                width: 300,
-                height: 500,
-              ),
+
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      color: Colors.black.withOpacity(0.6),
+                    ),
+                    // padding: EdgeInsets.only(top: 500,left: 50, right: 50),
+                    width: 330,
+                    height: 550,
+                  ),
           ),
-          Container( padding: const EdgeInsets.only(top:100),
+          Container(
+            padding: const EdgeInsets.only(top:100),
             child: Row( mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CustomButton(onPressed: (){setState(() {
                   isLogin = false;
-                });}, text: "Login", color: !isLogin? Colors.yellow: Colors.white),
+                });}, text: "Login", color: !isLogin? Colors.amberAccent: Colors.white70),
                 CustomButton(onPressed: (){setState(() {
                   isLogin = true;
-                });}, text: "SignUp", color: isLogin? Colors.yellow: Colors.white),
-              ],
-            ),
-          ),
-          Container( padding: const EdgeInsets.only(top: 200, left: 80, right: 80),
-            child: Column(
-              children: [
-                TextField(
-                  decoration: InputDecoration(
-                    border: UnderlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Colors.white)
-                    ),
-                    // fillColor: Colors.amberAccent,
-                    // filled: true,
-                    hintText: 'Email',
-                    hintStyle: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                   ),
-                ),
-                const SizedBox(height: 40,),
-                TextField(
-                  decoration: InputDecoration(
-                    border: UnderlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Colors.white)
-                    ),
-                    // fillColor: Colors.amberAccent,
-                    // filled: true,
-                    hintText: 'Password',
-                    hintStyle: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                const SizedBox(height: 40,),
-                if(isLogin)
-                TextField(
-                  decoration: InputDecoration(
-                    border: UnderlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Colors.white)
-                    ),
-                    // fillColor: Colors.amberAccent,
-                    // filled: true,
-                    hintText: 'Confirm Password',
-                    hintStyle: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                  ),
-                ),
+                });}, text: "SignUp", color: isLogin? Colors.amberAccent: Colors.white70),
               ],
             ),
           ),
          Container(
-           padding: EdgeInsets.only(top: 430, left: 100),
+              padding: const EdgeInsets.only(top: 200, left: 80, right: 80),
+              child: Column(
+                children: [
+                  TextField(
+                    decoration: InputDecoration(
+                      border: UnderlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: const BorderSide(color: Colors.white)
+                      ),
+                      // fillColor: Colors.amberAccent,
+                      // filled: true,
+                      hintText: 'Email',
+                      hintStyle: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                     ),
+                  ),
+                  const SizedBox(height: 40,),
+                  TextField(
+                    decoration: InputDecoration(
+                      border: UnderlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: const BorderSide(color: Colors.white)
+                      ),
+                      // fillColor: Colors.amberAccent,
+                      // filled: true,
+                      hintText: 'Password',
+                      hintStyle: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  const SizedBox(height: 40,),
+                  if(isLogin)
+                  TextField(
+                    decoration: InputDecoration(
+                      border: UnderlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: const BorderSide(color: Colors.white)
+                      ),
+                      // fillColor: Colors.amberAccent,
+                      // filled: true,
+                      hintText: 'Confirm Password',
+                      hintStyle: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+         Container(
+           padding: const EdgeInsets.only(top: 430, left: 100),
            child: Row(
              mainAxisAlignment: MainAxisAlignment.center,
              children: [
@@ -256,9 +259,9 @@ class _LoginState extends State<Login> {
                TextButton(onPressed: (){
                  setState(() {
                    isLogin = false;
-                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Home()),);
+                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const ForgetEmail()),);
                  });
-               }, child: Text('Forget Password?',
+               }, child: const Text('Forget Password?',
                style: TextStyle(
                  fontSize: 18,
                  fontWeight: FontWeight.bold,
@@ -266,19 +269,19 @@ class _LoginState extends State<Login> {
                ),
                ),
                ),
-               if(isLogin)
-               TextButton(onPressed: (){
-                 setState(() {
-                   isLogin = true;
-                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Login()),);
-                 });
-               }, child: Text('Already Registered?',
-                 style: TextStyle(
-                   fontSize: 18,
-                   fontWeight: FontWeight.bold,
-                   color: Colors.white,
-                 ),
-               ),)
+               // if(isLogin)
+               // TextButton(onPressed: (){
+               //   setState(() {
+               //     isLogin = true;
+               //     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const Login()),);
+               //   });
+               // }, child: const Text('Already Registered?',
+               //   style: TextStyle(
+               //     fontSize: 18,
+               //     fontWeight: FontWeight.bold,
+               //     color: Colors.white,
+               //   ),
+               // ),)
              ],
            ),
          ),
@@ -286,7 +289,7 @@ class _LoginState extends State<Login> {
           mainAxisAlignment:  MainAxisAlignment.center,
            children: [
              Container(
-               padding: EdgeInsets.only(left: 50, right: 50),
+               padding: const EdgeInsets.only(left: 50, right: 50),
                decoration: BoxDecoration(
                  borderRadius: BorderRadius.circular(30.0),
                  color: Colors.amber,
@@ -295,16 +298,27 @@ class _LoginState extends State<Login> {
                child:
                TextButton(onPressed: (){
                  setState(() {
-                   isLogin = true;
+                   // isLogin = true;
                    Navigator.pushReplacement(context,MaterialPageRoute(builder:(context)=>const Home()));
                  });
                }, child: const Text('Login',style: TextStyle(
                  fontSize: 25,
                  color: Colors.black,
-               ),))
-             )
+               ),)),
+             ),
            ],
-         )
+         ),
+          // Column(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   children: [ if(isLogin)
+          //     TextButton(onPressed: (){setState(() {
+          //       // isLogin = true;
+          //       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Login()));
+          //     });}, child:
+          //     Text('SignUp', style: TextStyle(fontSize: 25),),
+          //     )
+          //   ],
+          // )
           // Row(
           //   mainAxisAlignment: MainAxisAlignment.center,
           //   children: [

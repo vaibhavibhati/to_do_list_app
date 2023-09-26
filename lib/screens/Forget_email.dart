@@ -11,70 +11,82 @@ class ForgetEmail extends StatefulWidget {
 class _ForgetEmailState extends State<ForgetEmail> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-            image: AssetImage('assets/images/ForgetPassword.png'),
-            fit: BoxFit.cover
-        ),
-      ),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
+    return SafeArea(
+      child: Scaffold( backgroundColor: Colors.transparent,
         body: Stack(
           children: [
             Container(
-              padding: EdgeInsets.only(top: 40, right: 50, left: 110),
-                child: Text('Forget Password?',
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold,),)),
-            SingleChildScrollView(
-              child: Container(
-                // padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.4, right: 50, left: 50),
-                padding: EdgeInsets.only(top: 450, left: 70, right: 70),
-                child: Column(
-                  children: [
-                    TextField(
-                      decoration: InputDecoration(
-                        border: UnderlineInputBorder(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/forgot.png'),
+                  fit: BoxFit.cover
+                )
+              ),
+            ),
+            Container( padding: EdgeInsets.only(top: 100,left: 110),
+              child:
+                Image.asset(
+                    'assets/images/img_2.png',
+                    width: 200,
+                    height: 200,
+                  ),
+            ),
+            Container( padding: EdgeInsets.only(top: 50, left: 80),
+              child: Text('Forget Password?',
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
+            ),
+            Container( padding: EdgeInsets.only(top: 290,left: 60),
+              child: Column(
+                children: [
+                  Text('Enter Associated Email',
+                    style:TextStyle(fontSize: 23, fontWeight: FontWeight.bold) ,
+                  ),
+                  Text('Adddress With Your Account',
+                    style:TextStyle(fontSize: 23, fontWeight: FontWeight.bold) ,
+                  ), SizedBox(height: 10,),
+                  Text('We can send a link on your email',
+                    style:TextStyle(fontSize: 18,) ,
+                  )
+
+                ],
+              ),
+            ),
+            Container( padding: EdgeInsets.only(top: 420, left: 50, right: 50),
+              child:  Column(
+                children: [
+                  TextField(
+                    decoration: InputDecoration(
+                      border: UnderlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(color: Colors.white, width: 2),
-                        ),
-                        // fillColor: Colors.amberAccent,
-                        // filled: true,
-                        hintText: 'Email',
-                        hintStyle: TextStyle(color: Colors.black),
+                          borderSide: const BorderSide(color: Colors.black)
                       ),
+                      // fillColor: Colors.amberAccent,
+                      // filled: true,
+                      hintText: 'Email',
+                      hintStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                     ),
-
-                    SizedBox(height: 50,),
-                    Container(
-                      // padding: EdgeInsets.symmetric(horizontal: 100, vertical: 10),
-                      child: Row( mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(child: Container(
-                            margin: EdgeInsets.only(left: 50, right: 50),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30.0),
-                              color: Colors.black,
-                            ),
-                            child: TextButton(
-                              onPressed: (){
-                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Login()));
-                              },
-                              child: Text('Send', style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.white,),),
-                            ),
-                          ))
-
-                        ],
-                      ),
+                  ),
+                  SizedBox(height: 40,),
+                  Container(
+                    padding: EdgeInsets.only(left: 50, right: 50),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30.0),
+                      color: Colors.black,
                     ),
-                  ],
-                ),
+                    child: TextButton(onPressed: (){
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Login()));
+                    },
+                        child: Text('Send',
+                        style: TextStyle(fontSize: 25, color: Colors.white),
+                        )),
+                  )
+                ],
               ),
             )
           ],
-        ),
+
+        )
+
       ),
     );
   }
