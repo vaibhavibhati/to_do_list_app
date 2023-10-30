@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:scroll_snap_list/scroll_snap_list.dart';
 import 'package:to_do_list_app/screens/Create_Task.dart';
+import 'package:to_do_list_app/screens/Login.dart';
+import 'package:to_do_list_app/screens/Edit_Profile.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -46,6 +48,7 @@ class _HomeState extends State<Home> {
     if (index == data.length)
       return Center(
         child: CircularProgressIndicator(),
+
       );
     return Container(
       width: 150,
@@ -53,9 +56,13 @@ class _HomeState extends State<Home> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            color: Colors.black,
-            width: 150,
-            height: 200,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Colors.black,
+            ),
+
+            width: 170,
+            height: 250,
             child: Center(
               child: Text('${data[index]}',
                 style: TextStyle(fontSize: 50.0, color: Colors.white),),
@@ -71,18 +78,35 @@ class _HomeState extends State<Home> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        leading: IconButton(onPressed: (){},
-          icon: Icon(Icons.menu_rounded),
-        color: Colors.black,
-        iconSize: 50,
+        leading: Container(
+          padding: EdgeInsets.only(top: 10, left: 10),
+          child: CircleAvatar(
+            radius: 40,
+            backgroundColor: Colors.black,
+            child: IconButton(onPressed: (){
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Login()));
+            },
+              icon: Icon(Icons.arrow_back),
+            color: Colors.white70,
+            iconSize: 30,
+            ),
+          ),
         ),
         actions: [
           Container(
-            padding: EdgeInsets.only(top: 10),
-            child: CircleAvatar(
-              radius: 40,
-                backgroundColor: Colors.deepOrangeAccent,
-                child: Image.asset('assets/images/img_2.png')),
+            padding: EdgeInsets.only(top: 10, left: 20),
+            child: GestureDetector(
+              onTap: (){
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>EditProfile()));
+              },
+              child: CircleAvatar(
+                radius: 40,
+                  backgroundColor: Colors.deepOrangeAccent,
+                  child: Image.asset(
+                    'assets/images/img_2.png',
+                  ),
+              ),
+            ),
           ),
         ],
         backgroundColor: Colors.transparent,
@@ -151,13 +175,24 @@ class _HomeState extends State<Home> {
               // ),
 
                   Container(
-                    padding: EdgeInsets.only(bottom: 50,right: 30),
+                    padding: EdgeInsets.only(bottom: 40,right: 10),
                     child: Column(
                       children: [
-                        IconButton(onPressed: (){
-                          // Navigator.push(context, )
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> CreateTask()));
-                        }, icon:Icon(Icons.add_circle_outline, size: 70,))
+                        CircleAvatar(
+                          radius: 40,
+                          backgroundColor: Colors.black,
+                          child: Container(
+                            padding: EdgeInsets.only(bottom: 18, left: 8, right: 40),
+                            child: IconButton(onPressed: (){
+                              // Navigator.push(context, )
+                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> CreateTask()));
+                            }, icon:Icon(
+                              Icons.add, size: 50,
+                              color: Colors.white,
+                            ),
+                            ),
+                          ),
+                        )
                       ],
                     ),
                   )

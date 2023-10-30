@@ -180,32 +180,37 @@ class _LoginState extends State<Login> {
           ),
         ),
           Center(
-            child: Container(
-
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      color: Colors.black.withOpacity(0.6),
+            child: SizedBox(height: 500,
+              child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: Colors.black.withOpacity(0.6),
+                      ),
+                      // padding: EdgeInsets.only(top: 500,left: 50, right: 50),
+                      width: 330,
+                      height: 550,
                     ),
-                    // padding: EdgeInsets.only(top: 500,left: 50, right: 50),
-                    width: 330,
-                    height: 550,
-                  ),
-          ),
-          Container(
-            padding: const EdgeInsets.only(top:100),
-            child: Row( mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CustomButton(onPressed: (){setState(() {
-                  isLogin = false;
-                });}, text: "Login", color: !isLogin? Colors.amberAccent: Colors.white70),
-                CustomButton(onPressed: (){setState(() {
-                  isLogin = true;
-                });}, text: "SignUp", color: isLogin? Colors.amberAccent: Colors.white70),
-              ],
             ),
           ),
-         Container(
-              padding: const EdgeInsets.only(top: 200, left: 80, right: 80),
+          SizedBox(height: 250,
+            // child: Container(
+            //   padding: const EdgeInsets.only(top:170),
+              child: Row( mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CustomButton(onPressed: (){setState(() {
+                    isLogin = false;
+                  });}, text: 'Login', color: !isLogin? Colors.amberAccent: Colors.white70),
+                  CustomButton(onPressed: (){setState(() {
+                    isLogin = true;
+                    print("object");
+                  });}, text: 'SignUp', color: isLogin? Colors.amberAccent: Colors.white70),
+                ],
+              ),
+            ),
+          ]
+      ),
+         // Container(
+         //      padding: const EdgeInsets.only(top: 250, left: 80, right: 80),
               child: Column(
                 children: [
                   TextField(
@@ -214,14 +219,16 @@ class _LoginState extends State<Login> {
                           borderRadius: BorderRadius.circular(10),
                           borderSide: const BorderSide(color: Colors.white)
                       ),
-                      // fillColor: Colors.amberAccent,
+                      // fillColor: Colors.white,
                       // filled: true,
                       hintText: 'Email',
-                      hintStyle: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                      hintStyle: TextStyle(color: Colors.white.withOpacity(0.7),),
+                      ), style: const TextStyle(
+                    color: Colors.white
                      ),
                   ),
                   const SizedBox(height: 40,),
-                  TextField(
+                  TextField( obscureText: true,
                     decoration: InputDecoration(
                       border: UnderlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -230,12 +237,14 @@ class _LoginState extends State<Login> {
                       // fillColor: Colors.amberAccent,
                       // filled: true,
                       hintText: 'Password',
-                      hintStyle: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                      hintStyle: TextStyle(color: Colors.white.withOpacity(0.7),),
+                      ), style: const TextStyle(
+                       color: Colors.white
+                      ),
                     ),
-                  ),
                   const SizedBox(height: 40,),
                   if(isLogin)
-                  TextField(
+                  TextField( obscureText: true,
                     decoration: InputDecoration(
                       border: UnderlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -244,7 +253,9 @@ class _LoginState extends State<Login> {
                       // fillColor: Colors.amberAccent,
                       // filled: true,
                       hintText: 'Confirm Password',
-                      hintStyle: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                      hintStyle: TextStyle(color: Colors.white.withOpacity(0.7),),
+                      ), style: const TextStyle(
+                      color: Colors.white
                     ),
                   ),
                 ],
@@ -294,7 +305,7 @@ class _LoginState extends State<Login> {
                  borderRadius: BorderRadius.circular(30.0),
                  color: Colors.amber,
                ),
-               margin: const EdgeInsets.only(top: 500, left: 80, right: 80),
+               margin: const EdgeInsets.only(top: 530, left: 80, right: 80),
                child:
                TextButton(onPressed: (){
                  setState(() {
